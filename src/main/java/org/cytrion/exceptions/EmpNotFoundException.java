@@ -9,6 +9,11 @@ package org.cytrion.exceptions;
  *
  * @author Ravi Kumar
  */
-public class UserNotFoundException extends Exception {
+public class EmpNotFoundException extends Exception {
     public String message;
+
+    public EmpNotFoundException(String message) {
+        this.message = message;
+    }
+    
 }

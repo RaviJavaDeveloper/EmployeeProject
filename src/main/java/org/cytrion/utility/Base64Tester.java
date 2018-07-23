@@ -11,9 +11,13 @@ package org.cytrion.utility;
  */
 public class Base64Tester {
     public static void main(String[] args) {
-        String encoded=Base64Util.encode("ravikumar.sukola@cytrion.com");
-        System.out.println("Encoded String 'ravikumar.sukola@cytrion.com' to "+encoded);
-        String decoded=Base64Util.decode("cmF2aWt1bWFyLnN1a29sYUBjeXRyaW9uLmNvbQ==");
+        String encoded=Base64Util.encode("ravi@gmail.com");
+        System.out.println("Encoded String 'ravi@gmail.com' to "+encoded);
+        String decoded=Base64Util.decode("cmF2aUBnbWFpbC5jb20=");
+        System.out.println("Decode now : "+decoded);
+        encoded=Base64Util.encode("password");
+        System.out.println("Encoded String 'password' to "+encoded);
+        decoded=Base64Util.decode("cGFzc3dvcmQ=");
         System.out.println("Decode now : "+decoded);
     }
 }

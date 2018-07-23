@@ -7,9 +7,14 @@
         <servlet-name>restservice</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>com.cytrion.cfg.WebAppConfig</param-value>
+        </init-param>
+        <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>org.cytrion.controller</param-value>
         </init-param>
+        
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>

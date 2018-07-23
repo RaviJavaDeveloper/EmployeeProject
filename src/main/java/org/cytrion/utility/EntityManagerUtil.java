@@ -15,7 +15,7 @@ import javax.persistence.Persistence;
 public class EntityManagerUtil {
     private static final EntityManagerFactory emFactory;
     static{
-        emFactory=Persistence.createEntityManagerFactory("employee.jpa");
+        emFactory=Persistence.createEntityManagerFactory("employee");
     }
     
     public EntityManager getEntityManager(){

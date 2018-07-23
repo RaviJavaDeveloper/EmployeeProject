@@ -10,26 +10,34 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 
 /**
  * @author Ravi Kumar
  */
-@Table(name = "employees")
+@Table(name = "employee")
 @Entity
 public class Employee implements Serializable{
     @Id
-    @Column(name = "empid",updatable = false,unique = true)
+    @Column(name = "id",unique = true)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "name")
+    @Column(name = "uname")
     private String name;
-    @Column(name="emailid",updatable = false,unique = true)
+    @Column(name="email",unique = true)
+    @Min(value = 6,message = "Atleast 6")
     private String email;
     @Column(name = "password")
     private String password;
-    @Column(name="joiningdate",updatable = false)
+    @Column(name="joiningdate")
     private Date joindate;
     @Column(name = "salary")
     private Integer salary;
@@ -56,6 +64,9 @@ public class Employee implements Serializable{
 
     public String getEmail() {
         return Base64Util.decode(email);
+    }
+     public String getEncodedEmail() {
+        return email;
     }
 
     public void setEmail(String email) {
@@ -101,6 +112,12 @@ public class Employee implements Serializable{
     public void setDepartment(String department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" + "id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", joindate=" + joindate + ", salary=" + salary + ", dob=" + dob + ", department=" + department + '}';
+    }
+    
     
     
 }
